@@ -1,0 +1,8 @@
+administer pinecone api:
+  title: 'Administer Pinecone API'
+  description: 'Allows users to sync nodes to Pinecone via API'
+  restrict access: true
+
+access pinecone search:
+  title: 'Access Pinecone Search'
+  description: 'Allows users to search content via Pinecone API'

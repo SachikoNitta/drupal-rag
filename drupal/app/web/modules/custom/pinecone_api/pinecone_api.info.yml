@@ -1,0 +1,8 @@
+name: 'Pinecone API Integration'
+type: module
+description: 'Provides endpoints to interact with Python FastAPI Pinecone service for storing nodes and searching content.'
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:serialization

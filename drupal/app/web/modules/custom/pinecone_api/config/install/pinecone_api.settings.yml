@@ -1,0 +1,2 @@
+fastapi_base_url: 'http://localhost:8000'
+timeout: 30

@@ -1,0 +1,4 @@
+services:
+  pinecone_api.client:
+    class: Drupal\pinecone_api\Service\PineconeApiClient
+    arguments: ['@http_client', '@config.factory', '@logger.factory']

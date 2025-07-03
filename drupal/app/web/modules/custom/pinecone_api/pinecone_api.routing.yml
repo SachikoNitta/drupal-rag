@@ -1,0 +1,15 @@
+pinecone_api.sync_nodes:
+  path: '/api/pinecone/sync-nodes'
+  defaults:
+    _controller: '\Drupal\pinecone_api\Controller\PineconeApiController::syncNodes'
+  methods: [POST]
+  requirements:
+    _permission: 'administer pinecone api'
+
+pinecone_api.search:
+  path: '/api/pinecone/search'
+  defaults:
+    _controller: '\Drupal\pinecone_api\Controller\PineconeApiController::search'
+  methods: [GET, POST]
+  requirements:
+    _permission: 'access pinecone search'
