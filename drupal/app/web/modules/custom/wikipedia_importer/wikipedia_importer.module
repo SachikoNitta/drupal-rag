@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Wikipedia Importer module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function wikipedia_importer_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.wikipedia_importer':
+      return '<p>' . t('このモジュールはWikipedia APIからデータを取得してarticleノードに保存します。') . '</p>';
+  }
+}

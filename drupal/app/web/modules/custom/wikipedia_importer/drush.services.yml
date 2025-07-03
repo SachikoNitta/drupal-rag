@@ -1,0 +1,6 @@
+services:
+  wikipedia_importer.commands:
+    class: Drupal\wikipedia_importer\Commands\WikipediaImporterCommands
+    arguments: ['@http_client', '@entity_type.manager', '@logger.factory']
+    tags:
+      - { name: drush.command }

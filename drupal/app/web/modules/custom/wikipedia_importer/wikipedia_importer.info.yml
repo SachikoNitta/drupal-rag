@@ -1,0 +1,8 @@
+name: 'Wikipedia Importer'
+type: module
+description: 'Wikipedia APIからデータを取得してarticleノードに保存するモジュール'
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:node
+  - drupal:field
+  - drupal:text
