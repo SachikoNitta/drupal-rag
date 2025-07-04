@@ -1,0 +1,52 @@
+services:
+  drupal:
+    build:
+      context: ./drupal
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    volumes:
+      - ./drupal/app:/opt/drupal
+    depends_on:
+      - drupal-db
+      - python-api
+    environment:
+      - DRUPAL_DATABASE_HOST=drupal-db
+      - DRUPAL_DATABASE_NAME=drupal
+      - DRUPAL_DATABASE_USERNAME=drupal
+      - DRUPAL_DATABASE_PASSWORD=drupal
+    networks:
+      - drupal-network
+
+  python-api:
+    build:
+      context: ./python
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./python:/app
+    environment:
+      - PINECONE_API_KEY=${PINECONE_API_KEY}
+      - PINECONE_INDEX_NAME=${PINECONE_INDEX_NAME}
+    networks:
+      - drupal-network
+
+  drupal-db:
+    image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+    volumes:
+      - drupal-db-data:/var/lib/mysql
+    networks:
+      - drupal-network
+
+volumes:
+  drupal-db-data:
+
+networks:
+  drupal-network:
+    driver: bridge
